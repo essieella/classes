@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;game.java&apos; to &apos;Picture Project/src/(default package)&apos;&#x0A;- Original project: &apos;Picture Project&apos;&#x0A;- Destination element: &apos;Picture Project/src/(default package)&apos;&#x0A;- Original element: &apos;doc.resources.game.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;" element1="/src&lt;doc.resources{game.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1588343554696" units="1" version="1.0"/>
+</session>

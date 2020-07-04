@@ -1,0 +1,74 @@
+package blackjack;
+
+public class BlackjackHand extends Hand{
+	private int handValue;
+	private boolean soft;
+	BlackjackHand(boolean dealer) {
+		super(1);
+		if (dealer == false) {
+			addCard();
+		}
+	}
+	
+	BlackjackHand() {
+		super(0);
+	}
+	
+	public static void main(String args[]) {
+		PlayingCard.setRandom(false);
+		// a case with each face value
+		// input 1 and 11 (jack)
+		// BlackjackHand face11 = new BlackjackHand(true);
+		// face11.print();
+		// System.out.println(face11.handValue());
+		// input 1 and 12 (queen)
+		// BlackjackHand face12 = new BlackjackHand(true);
+		// face12.print();
+		// System.out.println(face12.handValue());
+		// input 1 and 13 (king)
+		// BlackjackHand face13 = new BlackjackHand(true);
+		// face13.print();
+		// System.out.println(face13.handValue());
+		
+		// a case with two or more aces
+		BlackjackHand face1 = new BlackjackHand(false);
+		System.out.println(face1.handValue());
+	}
+	
+	
+	private void computeValue() {
+		handValue = 0;
+		boolean aces = false;
+		soft = false;
+		for (int i = 1; i <= numberOfCards(); i++) {
+			System.out.println(this.numberOfCards());
+			if ((this.nthCard(i).getValue() == 11) || (this.nthCard(i).getValue() == 12) || (this.nthCard(i).getValue() == 13)) {
+				handValue = handValue + 10;
+			} else {
+				handValue = handValue + this.nthCard(i).getValue();
+			}
+			if (this.nthCard(i).getValue() == 1) {
+				aces = true;
+			}
+		if (aces && (handValue < 12)) {
+			handValue = handValue + 10;
+			soft = true;
+		}
+		}
+	}
+	
+	public int handValue() {
+		this.computeValue();
+		return handValue;
+	}
+	
+	public boolean soft() {
+		return soft;
+	}
+	
+	public void addCard() {
+		super.addCard();
+		computeValue();
+	}
+}
+

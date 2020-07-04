@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="LAST_PATH_SETTING" value="/Users/sarahpaz/Downloads"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="108"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="326"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="73"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=lib/src&amp;lt;{JST.java[JST&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=hw1/\/hw1\/lib\/JSTLib.jar&amp;lt;(notesTestJavaTutorTesterAdd.class[notesTestJavaTutorTesterAdd&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=Picture Project/src&amp;lt;classes{FlexiblePictureExplorer.java[FlexiblePictureExplorer~main~\[QString;[&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=Picture Project/src&amp;lt;{FlexiblePictureExplorer.java[FlexiblePictureExplorer~main~\[QString;[&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="106"/>
+			<item key="DIALOG_Y_ORIGIN" value="51"/>
+			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		</section>
+	</section>
+</section>

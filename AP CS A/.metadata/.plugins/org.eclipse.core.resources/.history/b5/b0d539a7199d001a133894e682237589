@@ -1,0 +1,147 @@
+import java.awt.image.ImageObserver;
+import java.awt.Image;
+import java.awt.Graphics2D;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.Scanner;
+
+public class game extends FlexiblePictureExplorer implements ImageObserver {
+	private int[] board = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0}; 
+							// user 			// computer
+	private boolean player0;
+	public game() {
+		super(new Picture(600, 800));
+		printBoard();
+		player0 = true;
+	}
+	
+	public void move(int position) {
+		position = position - 1;
+		if (board[position]!= 0 && position > 0 && position < 7) {
+			if (player0 == false) {
+				position = position + 6;
+			}
+			int points = board[position];
+			board[position] = 0;
+			int index = position + 1;
+			while(points > 0) {
+				board[index] = board[index] + 1;
+				index++;
+				points--;
+				if (index == 13) {
+					index = 0;
+				}
+			} switchPlayers();
+		} else {
+			if (board[position] == 0) {
+				System.out.println("Dummy. You have selected a box with 0 in it");
+			} else if (board[position] <= 0 && board[position] >= 7) {
+				System.out.println("Dum-Dum. That value is out of range.");
+			}
+		}
+		
+//		if (board[position] == 0 || position == 6 || position == 13) {
+//			// send back
+//		} else if (player0 && position < 6) { 
+//			// send back
+//		} else if (player1 && position > 0 && position < 6) {
+//			// send back
+//		} else {
+//			int points = board[position];
+//			board[position] = 0;
+//			int index = position + 1;
+//			while(points > 0) {
+//				board[index] = board[index] + 1;
+//				index++;
+//				points--;
+//				if (index == 13) {
+//					index = 0;
+//				}
+//			} switchPlayers();
+//		}
+	}
+	
+	public void switchPlayers() {
+		if (player0 == true) {
+			player0 = false;
+		} else {
+			player0 = true;
+		}
+	}
+	
+	public void printBoard() {
+		System.out.print("  ");
+		for (int i = 12; i > 6; i--) {
+			System.out.print(board[i] + " ");
+//			if (i == 7) {
+//				System.out.print("|");
+//			}
+		}
+		System.out.println("\n" + board[13]+ "             " + board[6]);
+		System.out.print("  ");
+		for (int i = 0; i < 6; i++) {
+			System.out.print(board[i] + " ");
+		}
+		System.out.println("");
+		
+	}
+	
+	public static void main(String[] args) {
+		int num_player = 0;
+		game a = new game();
+		while(a.checkWin() == false) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("\nPlayer " + num_player + ": pick a position from 1 - 6");
+			int ans = sc.nextInt();
+			a.move(ans);
+			System.out.println(" ");
+			a.printBoard();
+			System.out.println("\n" + a.checkWin());
+			num_player = (num_player + 1) % 2;
+		}
+		
+	}
+	
+	public boolean checkWin() {
+		int count = 0;
+		// check 0 - 5 
+		for (int i = 0; i < 6; i++) {
+			if (board[i] == 0) {
+				count++;
+			}
+		}
+		if (count == 6) {
+			return true;
+		} else {
+			count = 0;
+		}
+		// check 7 - 13
+		for (int i = 7; i < 14; i++) {
+			if (board[i] == 0) {
+				count++;
+			}
+		}
+		if (count == 6) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	// @Override
+	public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	// @Override
+	public void mouseClickedAction(DigitalPicture pict, Pixel pix) {
+		// TODO Auto-generated method stub
+	}
+}
+
+// graphics.setColor(Color.black);
+//graphics.setFont(new Font("Times", Font.BOLD, 26));
+//graphics.drawString("Choose a category to learn more about me!", 60, 60);
+//// Picture p = new Picture("game/board.png");
+//// graphics.drawImage(p.getBufferedImage(), 0, 0, this);
